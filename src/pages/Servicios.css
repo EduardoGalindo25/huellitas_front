@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+
+* {
+    font-family: 'Gotu', sans-serif;
+    /* box-sizing: border-box; */
+}
+
+body {
+    background-color: rgb(229, 220, 220);
+
+}
+
+/* Sección de iconos sin fondo */
+.seccionIconos {
+    padding: 40px 20px;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    
+    background-color: rgb(229, 220, 220);
+    width: 100vw;
+    padding: 25px 25px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 0px;
+}
+
+.TituloIconos{
+    padding: 100px 0px;
+    font-size: 140%;
+    color: black;
+    margin-left: 45%;
+    box-sizing: border-box;
+}
+
+
+.serviciosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 100%;
+}
+
+.servicioCard {
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconoGrande {
+    font-size: 3rem;
+    color: #4a6fa5;
+    margin-bottom: 20px;
+}
+
+.servicioCard h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.servicioCard p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+
+/* Contenedor Medicina con fondo verde */
+.contenedorMedicina {
+    background-color: #e8f5e9; /* Verde claro */
+    padding: 40px 20px;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+/* Contenedor blanco para imagen + texto */
+.contenedorBlanco {
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 40px;
+}
+
+.imagenMedicina {
+    flex: 1;
+}
+
+.imagenMedicina img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.textoMedicina {
+    flex: 1;
+}
+
+.textoMedicina h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.textoMedicina ul {
+    list-style-type: none;
+}
+
+.textoMedicina li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #555;
+    position: relative;
+    padding-left: 30px;
+}
+
+.textoMedicina li:before {
+    content: "•";
+    color: #4a6fa5;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -3px;
+}
+
+/* Galería de productos */
+.grupoCategoria {
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.grupoCategoria h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: left;
+}
+
+.filaImagenes {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.imagenCuadro {
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+}
+
+.imagenCuadro img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
