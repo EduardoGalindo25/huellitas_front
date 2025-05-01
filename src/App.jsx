@@ -1,18 +1,16 @@
 import React from "react";
-import Servicios from "./Screens/Servicios";
-import NavBar from "../src/Components/NavBar";
-
+import Servicios from "./pages/Servicios";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   return (
-      <Servicios/>
-
+<Router>
+      <Routes>
+        <Route path="/Servicios" element={<Servicios />} />
+        {}
+      </Routes>
+    </Router>
   );
 }
-
-
-/*const App = () => {
-  return <NavBar/>;
-};*/
 
 export default App;
 
