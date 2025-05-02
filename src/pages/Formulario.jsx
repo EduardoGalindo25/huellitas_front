@@ -1,40 +1,57 @@
-import "../styles/Formulario.css";
-import { Link } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
+import { Form, Input, Button, Typography } from "antd";
+//import "../styles/Formulario.css"; // asegúrate de incluir el CSS de arriba
+
+const { Title } = Typography;
+
 function Formulario() {
+  const [form] = Form.useForm();
+
+  const onFinish = (values) => {
+    console.log("Datos:", values);
+  };
+
   return (
-    <div className="container">
-      <div className="navbar">
-        <div className="navbar-home">
-          <Link to="/#" className="home-icon" title="Ir al inicio">
-            <FaHome size={24} color="#fff" />
-          </Link>
-          <h4>inicio</h4>
-        </div>
-      </div>
-      <div className="form">
-        <form className="form">
-          <fieldset>
-            <legend>
-              <strong>Nueva cita</strong>
-              <br />
-              <strong>Informacion de contacto</strong>
-            </legend>
-            <label htmlFor="name">Nombre: </label>
-            <input type="text" id="name" placeholder="Nombre" required />
-            <br />
+    <div className="centered-container">
+      <Title level={3}>Nueva cita</Title>
+      <Form
+        form={form}
+        layout="vertical"
+        onFinish={onFinish}
+        style={{ width: "100%", maxWidth: 400 }}
+      >
+        <Form.Item
+          label="Nombre"
+          name="nombre"
+          rules={[{ required: true, message: "Ingresa tu nombre" }]}
+        >
+          <Input placeholder="Nombre" />
+        </Form.Item>
 
-            <label htmlFor="lastname">Apellidos: </label>
-            <input type="text" id="lastname" placeholder="Apellidos" required />
-            <br />
+        <Form.Item
+          label="Apellidos"
+          name="apellidos"
+          rules={[{ required: true, message: "Ingresa tus apellidos" }]}
+        >
+          <Input placeholder="Apellidos" />
+        </Form.Item>
 
-            <label htmlFor="contact">Telefono: </label>
-            <input type="text" id="contact" placeholder="Telefono" required />
-            <br />
-            <button type="submit">enviar</button>
-          </fieldset>
-        </form>
-      </div>
+        <Form.Item
+          label="Teléfono"
+          name="telefono"
+          rules={[
+            { required: true, message: "Ingresa tu número" },
+            { pattern: /^[0-9]+$/, message: "Solo números" },
+          ]}
+        >
+          <Input placeholder="Teléfono" />
+        </Form.Item>
+
+        <Form.Item>
+          <Button type="primary" htmlType="submit" block>
+            Enviar
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   );
 }

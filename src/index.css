@@ -1,0 +1,16 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7f6;
+    font-family: 'Gotu', sans-serif;
+  }
+  
+  .centered-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center;     /* Centra horizontalmente */
+    height: 100vh;
+  }
+  
