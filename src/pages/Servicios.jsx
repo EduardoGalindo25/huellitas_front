@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "../Components/NavBar.jsx";
-import Banner from "../Components/Banner.jsx";
+import NavBar from "../components/navbarServicios.jsx";
+import Banner from "../components/Banner.jsx";
 import "./Servicios.css";
 import { FaStethoscope, FaAward, FaPhone, FaUserMd, FaQuestionCircle } from "react-icons/fa";
 
@@ -31,7 +31,7 @@ import Vet1 from "../assets/Vet1.jpg";
 
 const Servicios = () => {
     const categorias = [
-        {
+        /*{
             titulo: "Croquetas",
             imagenes: [img1, img2, img3],
         },
@@ -42,11 +42,11 @@ const Servicios = () => {
         {
             titulo: "Accesorios",
             imagenes: [img7, img8, img9],
-        },
+        },*/
     ];
 
     const servicios = [
-        {
+        /*{
             title: "Full diagnostics",
             icon: <FaStethoscope />,
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -70,17 +70,18 @@ const Servicios = () => {
             title: "How did we get here?",
             icon: <FaQuestionCircle />,
             description: "Lorem ipsum dolor sit amet, est vide volus purtis ex, nec in linc solum indo cum.",
-        },
+        },*/
     ];
 
     return (
         <>
             <NavBar />
+            <Banner />
             <div className="seccionIconos">
             <div className="TituloIconos">
                 <h3>S E R V I C I O S</h3>
             </div>
-                <div className="serviciosContainer">
+                {/*<div className="serviciosContainer">
                     
                     {servicios.map((servicio, index) => (
                         <div key={index} className="servicioCard">
@@ -108,8 +109,8 @@ const Servicios = () => {
                             <li>Cirugía</li>
                         </ul>
                     </div>
-                </div>
-                {categorias.map((categoria, i) => (
+                </div>*/}
+                {/*{categorias.map((categoria, i) => (
                     <div key={i} className="grupoCategoria">
                         <h2>{categoria.titulo}</h2>
                         <div className="filaImagenes">
@@ -120,7 +121,7 @@ const Servicios = () => {
                             ))}
                         </div>
                     </div>
-                ))}
+                ))}*/}
             </div>
         </>
     );

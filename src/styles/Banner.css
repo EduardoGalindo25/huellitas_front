@@ -1,0 +1,30 @@
+.banner-container {
+    background-image: url('../assets/Banner3.2.png');
+    background-size: cover;
+    background-position: center;
+    height: 55vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.banner-content {
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    /* Sombra para mejor visibilidad */
+    padding: 30px;
+    border-radius: 12px;
+    color: white;
+}
+
+.banner-content h1 {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+.button{
+    background-Color: #59867b;
+    border-Color: #000; 
+    height: 70px; 
+    width: 250px;
+}
