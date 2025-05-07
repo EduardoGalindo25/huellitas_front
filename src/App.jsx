@@ -9,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/registrar-cita" element={<Formulario />} />
         <Route path="/servicio" element={<Servicio />} />
+        <Route path="/Servicios" element={<Servicios />} />
         {}
       </Routes>
     </Router>
@@ -16,3 +17,4 @@ function App() {
 }
 
 export default App;
+
