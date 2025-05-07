@@ -12,6 +12,7 @@ function App() {
         <Route path="/servicio" element={<Servicio />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registrar-usuario" element={<Register />} />
+        <Route path="/Servicios" element={<Servicios />} />
         {}
       </Routes>
     </Router>
@@ -19,3 +20,4 @@ function App() {
 }
 
 export default App;
+
