@@ -1,0 +1,26 @@
+/* Servicio.css */
+
+/* Estilo para centrar los elementos dentro del layout */
+.ant-layout-content {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  button {
+    border-radius: 10px;
+  }
+  
+  .ant-btn-primary {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+  }
+  
+  .ant-btn-primary:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+  }
+  

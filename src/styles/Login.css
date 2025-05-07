@@ -1,0 +1,74 @@
+/* Contenedor principal para centrar el formulario */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f2f5;
+  }
+  
+  .login-card {
+    width: 400px; /* Aumentamos el ancho del formulario */
+    padding: 30px;
+  }
+  
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo-container {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .login-logo {
+    width: 150px; /* Aumentamos el tamaño del logo */
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Estilos del botón */
+  .custom-login-button {
+    background-color: rgba(89, 120, 96, 0.4);
+    color: #000;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-login-button:hover,
+  .custom-login-button:focus {
+    background-color: rgba(89, 120, 96, 0.6); /* Un poco más oscuro al pasar el mouse */
+    color: #000;
+  }
+  
+  /* Media query para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .login-card {
+      width: 90%; /* El formulario ocupará el 90% del ancho de la pantalla en dispositivos pequeños */
+      padding: 20px;
+    }
+  
+    .login-logo {
+      width: 120px; /* Reducción del tamaño del logo para pantallas pequeñas */
+    }
+  
+    .custom-login-button {
+      font-size: 14px; /* Hacemos el texto más pequeño en pantallas pequeñas */
+    }
+  }
+  .create-account {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .create-account-link {
+    color: #007bff; /* Color para el enlace */
+    text-decoration: none;
+  }
+  
+  .create-account-link:hover {
+    text-decoration: underline;
+  }
+  

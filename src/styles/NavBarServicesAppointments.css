@@ -1,0 +1,26 @@
+.navbar-header {
+    background-color: #88a9b3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-link {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .navbar-login {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .navbar-icon {
+    font-size: 20px;
+    margin-right: 6px;
+  }
+  
