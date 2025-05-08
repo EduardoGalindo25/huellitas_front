@@ -1,44 +1,112 @@
-import React, { useEffect, useState } from "react";
-import "../styles/navbarServicios.css";
-import LogoHuella from "../assets/LogoHuella.png";
+import React, { useState, useEffect } from "react";
+import { Drawer, Button } from "antd"; // Añadimos Button
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import LogoHuella from "../assets/LogoHuella.png";
+import "../styles/navbarServicios.css";
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        const onScroll = () => {
+        const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
 
-        window.addEventListener("scroll", onScroll);
-        return () => window.removeEventListener("scroll", onScroll);
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+            if (window.innerWidth > 992) {
+                setMenuOpen(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleResize);
+        };
     }, []);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
+    const menuItems = [
+        { key: "inicio", label: "Inicio" },
+        { key: "servicios", label: "Servicios" },
+        { key: "productos", label: "Productos" },
+    ];
+
     return (
-        <nav className={`navBar ${isScrolled ? "transparent" : ""}`}>
+        <nav className={`navBar ${isScrolled ? "scrolled" : ""}`}>
             <div className="navContenido">
                 <img src={LogoHuella} className="logo" alt="logoHuellitas" />
 
-                {/* Icono hamburguesa (solo se muestra en móvil) */}
+                {/* Menú Desktop */}
+                <div className="menu-desktop">
+                    {menuItems.map((item) => (
+                        <a 
+                            key={item.key} 
+                            href={`#${item.key}`}
+                            className="nav-link"
+                        >
+                            {item.label}
+                        </a>
+                    ))}
+                    {/* Añadimos el botón fuera del mapeo */}
+                    <Button
+                        type="primary"
+                        className="nav-button"
+                    >
+                        Agéndar tu cita
+                    </Button>
+                </div>
+
+                {/* Botón Hamburguesa (Mobile) */}
                 <div className="hamburger" onClick={toggleMenu}>
-                    {menuOpen ? <AiOutlineClose size={28} /> : <AiOutlineMenu size={28} />}
+                    {menuOpen ? (
+                        <AiOutlineClose size={24} />
+                    ) : (
+                        <AiOutlineMenu size={24} />
+                    )}
                 </div>
 
-
-                {/* Menú principal (visible u oculto en base a menuOpen en móviles) */}
-                <div className={`menu ${menuOpen ? "menu-open" : ""}`}>
-                    <a href="#">Inicio</a>
-                    <a href="#">Servicios</a>
-                    <a href="#">Productos</a>
-                    <a href="#">Inicia Sesión</a>
-                    <a href="#">Agendar Cita</a>
-                </div>
+                {/* Drawer para Mobile */}
+                <Drawer
+                    placement="right"
+                    onClose={toggleMenu}
+                    open={menuOpen}
+                    closable={false}
+                    width={windowWidth > 576 ? "300px" : "100%"}
+                    bodyStyle={{ padding: 0, backgroundColor: "#59867b" }}
+                    headerStyle={{ display: "none" }}
+                >
+                    <div className="mobile-menu">
+                        {menuItems.map((item) => (
+                            <a
+                                key={item.key}
+                                href={`#${item.key}`}
+                                className="mobile-link"
+                                onClick={toggleMenu}
+                            >
+                                {item.label}
+                            </a>
+                        ))}
+                        {/* Botón en versión móvil */}
+                        <Button classNames="mobile_button">
+                            type="primary"
+                            className="mobile-button"
+                            size="large"
+                            block
+                            onClick={toggleMenu}
+                        
+                            Agéndar tu cita
+                        </Button>
+                    </div>
+                </Drawer>
             </div>
         </nav>
     );
