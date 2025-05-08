@@ -16,7 +16,7 @@ const ServicesAppointments = () => {
 
   const handleSubmit = () => {
     if (selectedService) {
-      navigate("/registrar-cita"); // Redirige a la ruta '/registrar-cita'
+      navigate("/registrar-citas"); // Redirige a la ruta '/registrar-cita'
     } else {
       alert("Por favor, selecciona un servicio");
     }

@@ -14,18 +14,13 @@ const NavBarServicesAppointments = () => {
           <HomeOutlined className="navbar-icon" />
           Inicio
         </Link>
-        <Link to="/servicio" className="navbar-link">
+        <Link to="/Servicios" className="navbar-link">
           Servicios
         </Link>
-        <Link to="/productos" className="navbar-link">
+        <Link to="/Productos" className="navbar-link">
           Productos
         </Link>
       </Space>
-
-      <Link to="/login" className="navbar-login">
-        <UserOutlined className="navbar-icon" />
-        Iniciar sesión
-      </Link>
     </Header>
   );
 };
