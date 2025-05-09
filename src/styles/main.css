@@ -1,13 +1,13 @@
 /* Sección hero con imagen de fondo */
 .hero-section {
   display: flex;
-  flex-direction: column;  /* Todo en columna */
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
-  background-image: url("../assets/PerroFondo1.jpg");  /* Ruta de la imagen de fondo */
-  background-size: cover;  /* Asegura que la imagen cubra toda la sección */
+  background-image: url("../assets/PerroFondo1.jpg"); 
+  background-size: cover;  
   background-position: center;
-  height: 100vh;  /* Ocupa toda la altura de la pantalla */
+  height: 100vh; 
   text-align: center;
   padding: 0 20px;
   position: relative;
@@ -20,7 +20,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);  /* Un fondo oscuro para mejorar la visibilidad */
+  background-color: white;
   z-index: 1;
 }
 

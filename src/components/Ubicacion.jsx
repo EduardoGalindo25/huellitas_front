@@ -6,7 +6,18 @@ const { Title, Paragraph } = Typography;
 
 const Ubicacion = () => {
   return (
-    <section style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '60px 0' }}>
+    <section
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '60px 0',
+        backgroundColor: '#ffffff',  // Fondo blanco agregado
+        borderRadius: '10px',         // Borde redondeado para suavizar la apariencia
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Sombra sutil
+        padding: '20px',              // Espaciado interno
+      }}
+    >
       <Row gutter={24} align="middle" justify="center">
         <Col xs={24} md={12}>
           <a
