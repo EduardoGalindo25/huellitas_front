@@ -1,28 +1,46 @@
 import React from "react";
 import NavBar from "../components/navbarServicios.jsx";
 import Banner from "../components/Banner.jsx";
-import "./Servicios.css";
-import { FaStethoscope, FaAward, FaPhone, FaUserMd, FaQuestionCircle } from "react-icons/fa";
+import Servicio from "../components/Servicio.jsx";
 
 import img1 from "../assets/img1.jpeg";
 import img2 from "../assets/img2.jpeg";
-import img3 from "../assets/img3.jpeg";
-import img4 from "../assets/img4.jpeg";
-import img5 from "../assets/img5.jpeg";
-import img6 from "../assets/img6.jpeg";
-import img7 from "../assets/img7.jpeg";
-import img8 from "../assets/img8.jpeg";
-import img9 from "../assets/img9.jpeg";
-import Vet1 from "../assets/Vet1.jpg";
-
 
 const Servicios = () => {
     return (
-        <>
+        <div className="main-container">
             <NavBar />
-            <Banner />
-
-        </>
+            <Banner /> 
+            <div className="servicios-grid">
+                <Servicio
+                    imagen={img1}
+                    titulo="Consulta General Veterinaria"
+                    descripcion="Examen completo para evaluar la salud de tu mascota, incluyendo revisión de peso, temperatura y diagnóstico profesional."
+                    etiqueta="Veterinaria"
+                    alturaImagen={250}
+                />
+                <Servicio
+                    imagen={img2}
+                    titulo="Cuidado Dental para Perros"
+                    descripcion="Servicio especializado en limpieza y cuidado dental para prevenir enfermedades periodontales."
+                />
+                <Servicio
+                    imagen={img2}
+                    titulo="Cuidado Dental para Perros"
+                    descripcion="Servicio especializado en limpieza y cuidado dental para prevenir enfermedades periodontales."
+                />
+                <Servicio
+                    imagen={img2}
+                    titulo="Cuidado Dental para Perros"
+                    descripcion="Servicio especializado en limpieza y cuidado dental para prevenir enfermedades periodontales."
+                />
+                <Servicio
+                    imagen={img2}
+                    titulo="Cuidado Dental para Perros"
+                    descripcion="Servicio especializado en limpieza y cuidado dental para prevenir enfermedades periodontales."
+                />
+            </div>
+        </div>
     );
 };
 

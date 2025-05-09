@@ -96,15 +96,16 @@ const Navbar = () => {
                             </a>
                         ))}
                         {/* Botón en versión móvil */}
-                        <Button classNames="mobile_button">
-                            type="primary"
-                            className="mobile-button"
-                            size="large"
-                            block
-                            onClick={toggleMenu}
-                        
-                            Agéndar tu cita
-                        </Button>
+<Button
+    type="primary"
+    className="mobile-button"
+    size="large"
+    block
+    onClick={toggleMenu}
+>
+    Agéndar tu cita
+</Button>
+
                     </div>
                 </Drawer>
             </div>
