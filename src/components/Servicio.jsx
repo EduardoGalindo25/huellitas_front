@@ -21,7 +21,7 @@ const Servicio = ({
             </div>
 
             <div className="contenido-texto">
-                <span className="etiqueta-servicio">{etiqueta}</span>
+                {/* <span className="etiqueta-servicio">{etiqueta}</span> */}
                 <Title level={3} className="titulo-servicio">
                     {titulo}
                 </Title>

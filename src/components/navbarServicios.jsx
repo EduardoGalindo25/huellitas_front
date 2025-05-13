@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Drawer, Button } from "antd"; // Añadimos Button
+import { Link, useNavigate } from "react-router-dom";
+import { Drawer, Button } from "antd";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import LogoHuella from "../assets/LogoHuella.png";
 import "../styles/navbarServicios.css";
@@ -8,6 +9,7 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,32 +36,39 @@ const Navbar = () => {
         setMenuOpen(!menuOpen);
     };
 
+    const handleAgendarClick = () => {
+        navigate("/agendar");
+        if (menuOpen) toggleMenu();
+    };
+
     const menuItems = [
-        { key: "inicio", label: "Inicio" },
-        { key: "servicios", label: "Servicios" },
-        { key: "productos", label: "Productos" },
+        { key: "inicio", label: "Inicio", path: "/" },
+        { key: "servicios", label: "Servicios", path: "/servicios" },
+        { key: "productos", label: "Productos", path: "/productos" },
     ];
 
     return (
         <nav className={`navBar ${isScrolled ? "scrolled" : ""}`}>
             <div className="navContenido">
-                <img src={LogoHuella} className="logo" alt="logoHuellitas" />
+                <Link to="/">
+                    <img src={LogoHuella} className="logo" alt="logoHuellitas" />
+                </Link>
 
                 {/* Menú Desktop */}
                 <div className="menu-desktop">
                     {menuItems.map((item) => (
-                        <a 
+                        <Link 
                             key={item.key} 
-                            href={`#${item.key}`}
+                            to={item.path}
                             className="nav-link"
                         >
                             {item.label}
-                        </a>
+                        </Link>
                     ))}
-                    {/* Añadimos el botón fuera del mapeo */}
                     <Button
                         type="primary"
                         className="nav-button"
+                        onClick={handleAgendarClick}
                     >
                         Agéndar tu cita
                     </Button>
@@ -86,26 +95,24 @@ const Navbar = () => {
                 >
                     <div className="mobile-menu">
                         {menuItems.map((item) => (
-                            <a
+                            <Link
                                 key={item.key}
-                                href={`#${item.key}`}
+                                to={item.path}
                                 className="mobile-link"
                                 onClick={toggleMenu}
                             >
                                 {item.label}
-                            </a>
+                            </Link>
                         ))}
-                        {/* Botón en versión móvil */}
-<Button
-    type="primary"
-    className="mobile-button"
-    size="large"
-    block
-    onClick={toggleMenu}
->
-    Agéndar tu cita
-</Button>
-
+                        <Button
+                            type="primary"
+                            className="mobile-button"
+                            size="large"
+                            block
+                            onClick={handleAgendarClick}
+                        >
+                            Agéndar tu cita
+                        </Button>
                     </div>
                 </Drawer>
             </div>
