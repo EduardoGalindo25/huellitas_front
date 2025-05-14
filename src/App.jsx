@@ -1,4 +1,5 @@
 import React from "react";
+import Home from "./pages/Home";
 import "antd/dist/reset.css";
 import Servicios from "./pages/Servicios";
 import Banner from "./components/Banner";
@@ -9,10 +10,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 const App = () => (
   <Router>
     <Routes>
-      <Route path="/Banner" element={<Banner />} />
-      <Route path="/" element={<Servicios />} />
-      <Route path="/Citas" element={<Citas />} />
-      <Route path="/Servicios-citas" element={<ServiciosCitas />} />
+      <Route path="/banner" element={<Banner />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/citas" element={<Citas />} />
+      <Route path="/servicios" element={<Servicios />} />
       {}
     </Routes>
   </Router>
