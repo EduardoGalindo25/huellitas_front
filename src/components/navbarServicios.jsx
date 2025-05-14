@@ -55,7 +55,7 @@ const Navbar = () => {
           ))}
           {/* Añadimos el botón fuera del mapeo */}
           <Button type="primary" className="nav-button">
-            Agéndar tu cita
+            <Link to="/agendar-citas">Agendar tu cita</Link>
           </Button>
         </div>
 
@@ -90,10 +90,15 @@ const Navbar = () => {
               </a>
             ))}
             {/* Botón en versión móvil */}
-            <Button classNames="mobile_button">
-              type="primary" className="mobile-button" size="large" block
+            <Button
+              classNames="mobile_button"
+              type="primary"
+              className="mobile-button"
+              size="large"
+              block
               onClick={toggleMenu}
-              Agéndar tu cita
+            >
+              <Link to="/agendar-citas">Agendar tu cita</Link>
             </Button>
           </div>
         </Drawer>

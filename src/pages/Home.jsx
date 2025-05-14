@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Typography } from "antd";
-import { Link } from "react-router-dom";
 import fondo from "../assets/PerroFondo1.jpg"; // Ruta de la imagen
 import Navbar from "../components/navbarServicios"; // Asegúrate de que la ruta es correcta
 import Footer from "../components/Footer"; // Asegúrate de que la ruta es correcta
@@ -73,21 +72,6 @@ function Home() {
           >
             Donde la salud y el cuidado de tu mascota es nuestra prioridad.
           </Paragraph>
-
-          <Link to="#conocenos">
-            <Button
-              type="primary"
-              size="large"
-              style={{
-                fontSize: "18px", // Ajustamos el tamaño del texto del botón
-                padding: "10px 20px",
-                backgroundColor: "#007bff", // Color de fondo azul
-                borderColor: "#007bff", // Borde del botón azul
-              }}
-            >
-              Conócenos
-            </Button>
-          </Link>
         </div>
       </section>
 

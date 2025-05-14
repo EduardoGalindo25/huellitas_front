@@ -1,21 +1,19 @@
-import React from 'react';
-import { Card, Typography, Row, Col } from 'antd';
-import '../styles/main.css';
-
+import React from "react";
+import { Card, Typography, Row, Col } from "antd";
 const { Title, Paragraph } = Typography;
 
 const Ubicacion = () => {
   return (
     <section
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: '60px 0',
-        backgroundColor: '#ffffff',  // Fondo blanco agregado
-        borderRadius: '10px',         // Borde redondeado para suavizar la apariencia
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Sombra sutil
-        padding: '20px',              // Espaciado interno
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        margin: "60px 0",
+        backgroundColor: "#ffffff", // Fondo blanco agregado
+        borderRadius: "10px", // Borde redondeado para suavizar la apariencia
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Sombra sutil
+        padding: "20px", // Espaciado interno
       }}
     >
       <Row gutter={24} align="middle" justify="center">
@@ -24,7 +22,7 @@ const Ubicacion = () => {
             href="https://maps.app.goo.gl/a9Enyt8kjTNqVvBc9"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: "none" }}
           >
             <Card
               hoverable
@@ -33,11 +31,11 @@ const Ubicacion = () => {
                   src="/src/assets/mapaUbicacion.png"
                   alt="Ubicación Huellitas"
                   style={{
-                    width: '100%',
-                    height: 'auto',
-                    borderRadius: '10px',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                    transition: 'transform 0.3s',
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                    transition: "transform 0.3s",
                   }}
                 />
               }

@@ -1,0 +1,51 @@
+/* AppointmentForm.css */
+
+/* Contenedor principal centrado */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* Estilo del formulario */
+.ant-form {
+  width: 100%;
+  max-width: 600px;
+  background-color: #ffffff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Espaciado entre campos */
+.ant-form-item {
+  margin-bottom: 20px;
+}
+
+/* Botón */
+.ant-btn {
+  width: 100%;
+  font-weight: bold;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+  .ant-form {
+    padding: 20px 15px;
+  }
+
+  .ant-form-item {
+    margin-bottom: 15px;
+  }
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 768px) {
+  .ant-form {
+    max-width: 500px;
+  }
+}
