@@ -1,9 +1,25 @@
-import { Form, Input, Button, Select } from "antd";
+import { Form, Input, Button, Select, DatePicker } from "antd";
 import NavbarServicios from "../components/navbarServicios";
+import dayjs from "dayjs";
+
 const { Option } = Select;
 
 const AppointmentForm = ({ onFinish }) => {
   const [form] = Form.useForm();
+
+  // Función que se ejecuta al enviar el formulario
+  const handleFinish = (values) => {
+    // Formatea la fecha y hora a "YYYY-MM-DD HH:mm:ss"
+    const fechaHoraCita = values.fecha_hora_cita.format("YYYY-MM-DD HH:mm:ss");
+
+    const finalValues = {
+      ...values,
+      fecha_hora_cita: fechaHoraCita,
+    };
+
+    onFinish(finalValues); // Llama a la función que viene del componente padre
+    form.resetFields(); // Limpia todos los campos del formulario
+  };
 
   return (
     <>
@@ -21,7 +37,7 @@ const AppointmentForm = ({ onFinish }) => {
         <Form
           form={form}
           layout="vertical"
-          onFinish={onFinish}
+          onFinish={handleFinish}
           style={{
             width: "100%",
             maxWidth: "600px",
@@ -33,87 +49,103 @@ const AppointmentForm = ({ onFinish }) => {
         >
           {/* Campos de la mascota */}
           <Form.Item
-            name="nombreMascota"
+            name="nombre_mascota"
             label="Nombre de la mascota"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Campo requerido" }]}
           >
             <Input placeholder="Nombre de la mascota" />
           </Form.Item>
 
           <Form.Item
-            name="especieMascota"
+            name="especie_mascota"
             label="Especie de la mascota"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Campo requerido" }]}
           >
             <Input placeholder="Especie de la mascota" />
           </Form.Item>
 
           <Form.Item
-            name="razaMascota"
+            name="raza_mascota"
             label="Raza de la mascota"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Campo requerido" }]}
           >
             <Input placeholder="Raza de la mascota" />
           </Form.Item>
 
           <Form.Item
-            name="sexoMascota"
+            name="sexo_mascota"
             label="Sexo de la mascota"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Campo requerido" }]}
           >
             <Select placeholder="Selecciona el sexo">
-              <Option value="macho">Macho</Option>
-              <Option value="hembra">Hembra</Option>
+              <Option value={2}>Macho</Option>
+              <Option value={1}>Hembra</Option>
             </Select>
           </Form.Item>
 
           <Form.Item
-            name="pesoMascota"
+            name="peso_mascota"
             label="Peso de la mascota"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Campo requerido" }]}
           >
             <Input placeholder="Peso en kg" type="number" />
           </Form.Item>
 
           {/* Campos del cliente */}
           <Form.Item
-            name="nombreCliente"
+            name="nombre_cliente"
             label="Nombre del cliente"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Campo requerido" }]}
           >
             <Input placeholder="Nombre del cliente" />
           </Form.Item>
 
           <Form.Item
-            name="numeroCliente"
+            name="numero_cliente"
             label="Número de cliente"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Campo requerido" }]}
           >
             <Input placeholder="Número de cliente" />
           </Form.Item>
 
           <Form.Item
-            name="correoCliente"
+            name="correo_cliente"
             label="Correo del cliente"
-            rules={[{ required: true, type: "email" }]}
+            rules={[
+              { required: true, type: "email", message: "Campo requerido" },
+            ]}
           >
             <Input placeholder="Correo electrónico" />
           </Form.Item>
 
           {/* Tipo de servicio */}
           <Form.Item
-            name="tipoServicio"
+            name="servicio_cita"
             label="Tipo de servicio"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Campo requerido" }]}
           >
             <Select placeholder="Selecciona el tipo de servicio">
-              <Option value="estetica">Estética</Option>
-              <Option value="consulta">Consulta</Option>
-              <Option value="cirugia">Cirugía</Option>
-              <Option value="hospital">Hospitalización</Option>
-              <Option value="pension">Pensión</Option>
-              <Option value="adopcion">Adopción</Option>
+              <Option value={1}>Estética</Option>
+              <Option value={2}>Consulta</Option>
+              <Option value={3}>Cirugía</Option>
+              <Option value={4}>Hospitalización</Option>
+              <Option value={5}>Pensión</Option>
+              <Option value={6}>Adopción</Option>
             </Select>
+          </Form.Item>
+
+          {/* Fecha y hora de la cita */}
+          <Form.Item
+            name="fecha_hora_cita"
+            label="Fecha y hora de la cita"
+            rules={[{ required: true, message: "Campo requerido" }]}
+          >
+            <DatePicker
+              showTime
+              format="YYYY-MM-DD HH:mm:ss"
+              placeholder="Selecciona fecha y hora"
+              style={{ width: "100%" }}
+            />
           </Form.Item>
 
           {/* Botón de enviar */}
