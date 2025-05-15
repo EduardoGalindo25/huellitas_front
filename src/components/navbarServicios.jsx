@@ -36,15 +36,17 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { key: "/", label: "Inicio" },
-    { key: "servicios", label: "Servicios" },
-    { key: "productos", label: "Productos" },
+    { key: "/#/", label: "Inicio" },
+    { key: "/#/servicios", label: "Servicios" },
+    { key: "/#/productos", label: "Productos" },
   ];
 
   return (
     <nav className={`navBar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navContenido">
-        <img src={LogoHuella} className="logo" alt="logoHuellitas" />
+        <Link to="/">
+          <img src={LogoHuella} className="logo" alt="logoHuellitas" />
+        </Link>
 
         {/* Menú Desktop */}
         <div className="menu-desktop">

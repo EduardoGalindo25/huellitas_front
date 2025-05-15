@@ -10,37 +10,33 @@ const Ubicacion = () => {
         alignItems: "center",
         justifyContent: "center",
         margin: "60px 0",
-        backgroundColor: "#ffffff", // Fondo blanco agregado
-        borderRadius: "10px", // Borde redondeado para suavizar la apariencia
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Sombra sutil
-        padding: "20px", // Espaciado interno
+        backgroundColor: "#ffffff",
+        borderRadius: "10px",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        padding: "20px",
       }}
     >
       <Row gutter={24} align="middle" justify="center">
         <Col xs={24} md={12}>
-          <a
-            href="https://maps.app.goo.gl/a9Enyt8kjTNqVvBc9"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none" }}
+          <Card
+            hoverable
+            style={{
+              borderRadius: "10px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              overflow: "hidden",
+            }}
           >
-            <Card
-              hoverable
-              cover={
-                <img
-                  src="/src/assets/mapaUbicacion.png"
-                  alt="Ubicación Huellitas"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    borderRadius: "10px",
-                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                    transition: "transform 0.3s",
-                  }}
-                />
-              }
-            />
-          </a>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.8184616144517!2d-103.7318617896081!3d19.246741981918117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84254552c9f5fd35%3A0x59fb930bda02c644!2sHuellitas%20Negras!5e0!3m2!1ses-419!2smx!4v1747280005829!5m2!1ses-419!2smx"
+              width="1500px"
+              height="300"
+              style={{ border: "0", borderRadius: "10px" }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Ubicación en Google Maps"
+            ></iframe>
+          </Card>
         </Col>
         <Col xs={24} md={12}>
           <div>

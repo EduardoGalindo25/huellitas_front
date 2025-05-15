@@ -1,0 +1,16 @@
+/* global.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Evita el desplazamiento horizontal */
+body {
+    overflow-x: hidden;
+}
+
+/* Para un mejor uso del espacio en dispositivos móviles */
+html, body {
+    width: 100%;
+}

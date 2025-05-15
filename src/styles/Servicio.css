@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
-    padding: 60px 40px;
+    padding: 60px 20px;
 }
 
 .servicios-gridd {
@@ -11,7 +11,7 @@
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
-    padding: 60px 40px;
+    padding: 60px 20px;
 }
 
 
