@@ -1,11 +1,24 @@
 import { Form, Input, Button, Select, DatePicker } from "antd";
 import NavbarServicios from "../components/navbarServicios";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 import dayjs from "dayjs";
 
 const { Option } = Select;
 
 const AppointmentForm = ({ onFinish }) => {
   const [form] = Form.useForm();
+  const [searchParams] = useSearchParams();
+
+  // Obtiene el servicio preseleccionado desde los parámetros de la URL
+  const servicioPreseleccionado = searchParams.get("servicio");
+
+  // Preselecciona el servicio si viene en los parámetros
+  useEffect(() => {
+    if (servicioPreseleccionado) {
+      form.setFieldsValue({ servicio_cita: Number(servicioPreseleccionado) });
+    }
+  }, [servicioPreseleccionado, form]);
 
   // Función que se ejecuta al enviar el formulario
   const handleFinish = (values) => {
@@ -17,8 +30,8 @@ const AppointmentForm = ({ onFinish }) => {
       fecha_hora_cita: fechaHoraCita,
     };
 
-    onFinish(finalValues); // Llama a la función que viene del componente padre
-    form.resetFields(); // Limpia todos los campos del formulario
+    onFinish(finalValues);
+    form.resetFields();
   };
 
   return (
