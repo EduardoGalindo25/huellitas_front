@@ -4,7 +4,7 @@ import Servicios from "../pages/Servicios";
 import Productos from "../pages/Productos";
 import Banner from "../components/Banner";
 import Citas from "../pages/Appointments";
-
+import Login from "../pages/Login";
 const router = createHashRouter([
   {
     path: "/banner",
@@ -25,6 +25,10 @@ const router = createHashRouter([
   {
     path: "/productos",
     element: <Productos />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
