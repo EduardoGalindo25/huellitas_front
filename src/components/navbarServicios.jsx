@@ -6,107 +6,103 @@ import LogoHuella from "../assets/LogoHuella.png";
 import "../styles/navbarServicios.css";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+            if (window.innerWidth > 992) {
+                setMenuOpen(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
     };
 
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-      if (window.innerWidth > 992) {
-        setMenuOpen(false);
-      }
-    };
+    const menuItems = [
+        { key: "/#/", label: "Inicio" },
+        { key: "/#/servicios", label: "Servicios" },
+        { key: "/#/productos", label: "Productos" },
+        { key: "/#/agendar-citas", label: "Agenta tu cita" },
+        { key: "/#/login", label: "Inicia sesión" },
+    ];
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
+    return (
+        <nav className={`navBar ${isScrolled ? "scrolled" : ""}`}>
+            <div className="navContenido">
+                <Link to="/">
+                    <img src={LogoHuella} className="logo" alt="logoHuellitas" />
+                </Link>
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+                {/* Menú Desktop */}
+                <div className="menu-desktop">
+                    {menuItems.slice(0, 3).map((item) => (
+                        <a key={item.key} href={`${item.key}`} className="nav-link">
+                            {item.label}
+                        </a>
+                    ))}
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+                    {/* Añadimos el botón fuera del mapeo */}
+                    <Button type="primary" className="nav-button">
+                        <Link to="/agendar-citas">Agenda cita</Link>
+                    </Button>
+                    <Button type="primary" className="nav-button">
+                        <Link to="/login">Inicia sesión</Link>
+                    </Button>
+                </div>
 
-  const menuItems = [
-    { key: "/#/", label: "Inicio" },
-    { key: "/#/servicios", label: "Servicios" },
-    { key: "/#/productos", label: "Productos" },
-  ];
+                {/* Botón Hamburguesa (Mobile) */}
+                <div className="hamburger" onClick={toggleMenu}>
+                    {menuOpen ? (
+                        <AiOutlineClose size={24} />
+                    ) : (
+                        <AiOutlineMenu size={24} />
+                    )}
+                </div>
 
-  return (
-    <nav className={`navBar ${isScrolled ? "scrolled" : ""}`}>
-      <div className="navContenido">
-        <Link to="/">
-          <img src={LogoHuella} className="logo" alt="logoHuellitas" />
-        </Link>
+                {/* Drawer para Mobile */}
+                <Drawer
+                    placement="right"
+                    onClose={toggleMenu}
+                    open={menuOpen}
+                    closable={false}
+                    width={windowWidth > 576 ? "300px" : "100%"}
+                    bodyStyle={{ padding: 0, backgroundColor: "#59867b" }}
+                    headerStyle={{ display: "none" }}
+                >
+                    <div className="mobile-menu">
+                        {menuItems.map((item) => (
+                            <a
+                                key={item.key}
+                                href={`${item.key}`}
+                                className="mobile-link"
+                                onClick={toggleMenu}
+                            >
+                                {item.label}
+                            </a>
+                        ))}
 
-        {/* Menú Desktop */}
-        <div className="menu-desktop">
-          {menuItems.map((item) => (
-            <a key={item.key} href={`${item.key}`} className="nav-link">
-              {item.label}
-            </a>
-          ))}
-          {/* Añadimos el botón fuera del mapeo */}
-          <Button type="primary" className="nav-button">
-            <Link to="/agendar-citas">Agendar tu cita</Link>
-          </Button>
-        </div>
-
-        {/* Botón Hamburguesa (Mobile) */}
-        <div className="hamburger" onClick={toggleMenu}>
-          {menuOpen ? (
-            <AiOutlineClose size={24} />
-          ) : (
-            <AiOutlineMenu size={24} />
-          )}
-        </div>
-
-        {/* Drawer para Mobile */}
-        <Drawer
-          placement="right"
-          onClose={toggleMenu}
-          open={menuOpen}
-          closable={false}
-          width={windowWidth > 576 ? "300px" : "100%"}
-          bodyStyle={{ padding: 0, backgroundColor: "#59867b" }}
-          headerStyle={{ display: "none" }}
-        >
-          <div className="mobile-menu">
-            {menuItems.map((item) => (
-              <a
-                key={item.key}
-                href={`${item.key}`}
-                className="mobile-link"
-                onClick={toggleMenu}
-              >
-                {item.label}
-              </a>
-            ))}
-            {/* Botón en versión móvil */}
-            <Button
-              classNames="mobile_button"
-              type="primary"
-              className="mobile-button"
-              size="large"
-              block
-              onClick={toggleMenu}
-            >
-              <Link to="/agendar-citas">Agendar tu cita</Link>
-            </Button>
-          </div>
-        </Drawer>
-      </div>
-    </nav>
-  );
+                    </div>
+                </Drawer>
+            </div>
+        </nav>
+    );
 };
 
 export default Navbar;
