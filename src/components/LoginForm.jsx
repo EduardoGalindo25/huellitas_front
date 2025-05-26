@@ -1,10 +1,28 @@
 import React from "react";
-import { Form, Input, Button, Card } from "antd";
+import { Form, Input, Button, Card, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import axios from "axios";
 
 const LoginForm = () => {
-  const onFinish = (values) => {
-    console.log("Login info:", values);
+  const onFinish = async (values) => {
+    try {
+      const params = new URLSearchParams();
+      params.append("usuario", values.username);
+      params.append("password", values.password);
+
+      const response = await axios.post("/login", params, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+
+      message.success("¡Login exitoso!");
+      console.log("Respuesta:", response.data);
+      // Aquí puedes redirigir o guardar token, etc.
+    } catch (error) {
+      message.error("Usuario o contraseña incorrectos");
+      console.error("Error en login:", error);
+    }
   };
 
   return (
@@ -39,10 +57,10 @@ const LoginForm = () => {
       >
         <Form
           name="login"
-          layout="vertical" // Layout vertical para etiquetas arriba
+          layout="vertical"
           initialValues={{ remember: true }}
           onFinish={onFinish}
-          style={{ maxWidth: 460, margin: "0 auto" }} // Controla ancho del form y centra
+          style={{ maxWidth: 460, margin: "0 auto" }}
         >
           <Form.Item
             label="Usuario"
