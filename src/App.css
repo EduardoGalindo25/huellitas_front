@@ -5,9 +5,11 @@
     box-sizing: border-box;
 }
 
+
 /* Evita el desplazamiento horizontal */
 body {
     overflow-x: hidden;
+    font-family: sans-serif;
 }
 
 /* Para un mejor uso del espacio en dispositivos móviles */

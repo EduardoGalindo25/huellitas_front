@@ -1,0 +1,19 @@
+.title_container {
+    width: 100%;
+    height: 30vh;
+    position: relative; /* Necesario para posicionar elementos hijos */
+    background-color: #fff; /* Opcional: para que se vea el área del Header */
+}
+
+.title {
+    color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 11vw; /* Espaciado desde los bordes */
+}
+
+
+.ant-layout-header{
+    background-color: white;
+}

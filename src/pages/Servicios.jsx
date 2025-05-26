@@ -1,7 +1,6 @@
-import React from "react";
 import NavBar from "../components/navbarServicios.jsx";
 import Banner from "../components/Banner.jsx";
-import Servicio from "../components/Servicio.jsx";
+import Cards from "../components/Cards.jsx";
 import banner from "../assets/Banner.png";
 import consulta from "../assets/consulta.jpg";
 import estetica from "../assets/estetica.jpg";
@@ -18,50 +17,50 @@ const Servicios = () => {
         imagen={banner}
         titulo="Somos una nueva experiencia veterinaria para tu mascota"
       />
-      <div className="servicios-grid">
-        <Servicio
+      <div className="cards_grid_1">
+        <Cards
           imagen={consulta}
           titulo="Consulta General Veterinaria"
           descripcion="Examen completo para evaluar la salud de tu mascota."
           alturaImagen={250}
-          idServicio={2} // ID para "Consulta"
+          idCards={2} // ID para "Consulta"
         />
-        <Servicio
+        <Cards
           imagen={estetica}
           titulo="Estética y baño"
-          descripcion="Servicio especializado en la limpieza y cuidado de tu mascota."
+          descripcion="Cards especializado en la limpieza y cuidado de tu mascota."
           alturaImagen={250}
-          idServicio={1} // ID para "Estética"
+          idCards={1} // ID para "Estética"
         />
-        <Servicio
+        <Cards
           imagen={cirugia}
           titulo="Cirugía y tratamientos"
           descripcion="Proceso llevado por especialistas en cirugía veterinaria."
           alturaImagen={250}
-          idServicio={3} // ID para "Cirugía"
+          idCards={3} // ID para "Cirugía"
         />
       </div>
-      <div className="servicios-gridd">
-        <Servicio
+      <div className="cards_grid_2">
+        <Cards
           imagen={pension}
           titulo="Pensión"
           descripcion="Cuidado y resguardo para tus mascotas."
           alturaImagen={250}
-          idServicio={5} // ID para "Pensión"
+          idCards={5} // ID para "Pensión"
         />
-        <Servicio
+        <Cards
           imagen={hospital}
-          titulo="Servicio de hospitalización"
+          titulo="Cards de hospitalización"
           descripcion="Atención médica especializada para mascotas que requieren cuidados intensivos."
           alturaImagen={250}
-          idServicio={4} // ID para "Hospitalización"
+          idCards={4} // ID para "Hospitalización"
         />
-        <Servicio
+        <Cards
           imagen={adopcion}
           titulo="Adopción de mascotas"
           descripcion="Proceso de adopción responsable y amoroso para encontrar un hogar adecuado para mascotas."
           alturaImagen={250}
-          idServicio={6} // ID para "Adopción"
+          idCards={6} // ID para "Adopción"
         />
       </div>
     </div>

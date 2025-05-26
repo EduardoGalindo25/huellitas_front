@@ -1,6 +1,6 @@
 import NavBar from "../components/navbarServicios.jsx";
 import Banner from "../components/Banner.jsx";
-import Servicio from "../components/Servicio.jsx";
+import Cards from "../components/Cards.jsx";
 
 import banner from "../assets/Banner2.png";
 import croquetas from "../assets/croquetas.jpg";
@@ -18,40 +18,40 @@ const Productos = () => {
         imagen={banner}
         titulo="Contamos con los mejores productos para tu peludo"
       />
-      <div className="servicios-grid">
-        <Servicio
+      <div className="cards_grid_1">
+        <Cards
           imagen={croquetas}
           titulo="Croquetas para Perros"
           descripcion="Alimento balanceado y nutritivo, de tus marcas favoritas, para perros todas las razas y tamaños."
           alturaImagen={250}
         />
-        <Servicio
+        <Cards
           imagen={prodBano}
           titulo="Productos de baño para Perros"
           descripcion="Shampoos, acondicionadores y productos de baño para mantener a tu perro limpio y saludable."
           alturaImagen={250}
         />
-        <Servicio
+        <Cards
           imagen={prodDental}
           titulo="Productos dentales para Perros"
           descripcion="Productos para el cuidado dental de tu perro, incluyendo cepillos y pastas dentales."
           alturaImagen={250}
         />
       </div>
-      <div className="servicios-gridd">
-        <Servicio
+      <div className="cards_grid_2">
+        <Cards
           imagen={juguetes}
           titulo="Juguetes varios"
           descripcion="Juguetes interactivos y entretenidos para mantener a tu mascota activa y feliz."
           alturaImagen={250}
         />
-        <Servicio
+        <Cards
           imagen={rascador}
           titulo="Torres para Gatos"
           descripcion="Estructuras de juego y descanso para gatos, ideales para rascar y escalar."
           alturaImagen={250}
         />
-        <Servicio
+        <Cards
           imagen={platos}
           titulo="Platos para comida y agua"
           descripcion="Platos de diferentes tamaños y estilos para la comida y el agua de tu mascota."
