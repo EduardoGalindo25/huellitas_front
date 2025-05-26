@@ -43,6 +43,7 @@ const Navbar = () => {
         { key: "/#/citas", label: "Citas" },
         { key: "/#/clientes", label: "Clientes" },
         { key: "/#/pacientes", label: "Pacientes" },
+        { key: "/#/inicio", label: "Log Out" },
     ];
 
     return (
@@ -54,7 +55,7 @@ const Navbar = () => {
 
                 {/* Menú Desktop */}
                 <div className="menu-desktop">
-                    {menuItems.map((item) => (
+                    {menuItems.slice(0, 4).map((item) => (
                         <a key={item.key} href={`${item.key}`} className="nav-link">
                             {item.label}
                         </a>

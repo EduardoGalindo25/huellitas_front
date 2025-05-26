@@ -1,0 +1,44 @@
+.title_container {
+    width: 100%;
+    height: 30vh;
+    position: relative; /* Necesario para posicionar elementos hijos */
+    background-color: #fff; /* Opcional: para que se vea el área del Header */
+}
+
+.title {
+    color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 11vw; /* Espaciado desde los bordes */
+}
+
+.tabla-contenedor {
+    width: 80vw; /* puedes ajustar esto */
+    margin: 0 auto; /* centrado horizontal */
+    padding: 1rem;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.manage_button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    cursor: pointer;
+    color: black;
+    user-select: none;
+
+}
+
+@media (max-width: 768px) {
+    .tabla-contenedor {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .ant-table {
+        font-size: 14px;
+    }
+}

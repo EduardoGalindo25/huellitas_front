@@ -1,4 +1,3 @@
-import React from 'react';
 import { Typography, Layout } from 'antd';
 import NavBar from "../components/navbarDashboard.jsx";
 import Cards from "../components/Cards.jsx";

@@ -6,6 +6,8 @@ import Banner from "../components/Banner";
 import Citas from "../pages/Appointments";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
+import AppointmentControl from "../pages/appointmentControl";
+
 const router = createHashRouter([
   {
     path: "/banner",
@@ -34,6 +36,10 @@ const router = createHashRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/control-de-citas",
+    element: <AppointmentControl />,
   }
 ]);
 
