@@ -9,14 +9,14 @@ const Cards = ({
   titulo,
   descripcion,
   alturaImagen = 300,
-  idServicio,
+  idCards,
 }) => {
   const navigate = useNavigate();
   const location = useLocation(); // Obtiene la ruta actual
 
   const handleCardClick = () => {
     if (location.pathname === "/servicios") {
-      navigate(`/agendar-citas?servicio=${idServicio}`);
+      navigate(`/agendar-citas?servicio=${idCards}`);
     }
   };
 

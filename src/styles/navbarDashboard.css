@@ -189,3 +189,11 @@
 .ant-btn {
     font-family:sans-serif;
 }
+
+.logout-button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}

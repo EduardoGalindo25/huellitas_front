@@ -1,14 +1,15 @@
 import Login from "../components/LoginForm";
-import Navbar from "../components/navbarServicios";
+import MainLayout from "../components/MainLayout";
 import Footer from "../components/Footer";
 
 function LoginPage() {
   return (
-    <div>
-      <Navbar />
-      <Login />
-      <Footer />
-    </div>
+    <MainLayout>
+      <div>
+        <Login />
+        <Footer />
+      </div>
+    </MainLayout>
   );
 }
 

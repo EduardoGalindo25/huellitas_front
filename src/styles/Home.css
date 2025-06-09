@@ -1,0 +1,39 @@
+/* Hero section ocupa pantalla completa */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white; /* para que no se vea gris debajo */
+  background-size: cover; /* Desktop: imagen cubre todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Overlay */
+.hero-section .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Contenido por encima */
+.hero-section .main-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Cambiamos background-size a contain en móvil */
+@media (max-width: 768px) {
+  .hero-section {
+    background-color: white !important;
+    background-size: contain;
+  }
+}

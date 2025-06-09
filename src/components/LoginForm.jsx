@@ -1,10 +1,71 @@
-import React from "react";
-import { Form, Input, Button, Card } from "antd";
+import React, { useState } from "react";
+import { Form, Input, Button, Card, Alert } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-
+import api from "../utils/axiosConfig";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const LoginForm = () => {
-  const onFinish = (values) => {
-    console.log("Login info:", values);
+  const navigate = useNavigate();
+
+  // Estado para el mensaje y tipo (success, error)
+  const [alert, setAlert] = useState({ message: "", type: "", visible: false });
+
+  const onFinish = async (values) => {
+    try {
+      const params = new URLSearchParams();
+      params.append("email", values.email);
+      params.append("password", values.password);
+
+      const response = await api.post("/auth/login", params, {
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      });
+
+      if (response.data.success) {
+        const token = response.data.data;
+        sessionStorage.setItem("token", token);
+
+        let timerInterval;
+        Swal.fire({
+          icon: "success",
+          title: "Inicio de sesión exitoso",
+          html: "Redirigiendo....",
+          timer: 1000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            const b = Swal.getHtmlContainer().querySelector("b");
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft();
+            }, 100);
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+          },
+        }).then((result) => {
+          if (
+            result.dismiss === Swal.DismissReason.timer ||
+            result.isConfirmed
+          ) {
+            navigate("/dashboard");
+          }
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error al iniciar sesión",
+          text: response.data.errors,
+        });
+      }
+    } catch (error) {
+      console.error("Error al hacer login:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error de credenciales",
+        text: error.response?.data?.errors,
+        confirmButtonText: "OK",
+        confirmButtonColor: "#59867b",
+      });
+    }
   };
 
   return (
@@ -37,17 +98,29 @@ const LoginForm = () => {
           padding: "20px 0",
         }}
       >
+        {/* Mostrar alerta solo si está visible */}
+        {alert.visible && (
+          <Alert
+            style={{ marginBottom: 24 }}
+            message={alert.message}
+            type={alert.type}
+            showIcon
+            closable
+            onClose={() => setAlert({ ...alert, visible: false })}
+          />
+        )}
+
         <Form
           name="login"
-          layout="vertical" // Layout vertical para etiquetas arriba
+          layout="vertical"
           initialValues={{ remember: true }}
           onFinish={onFinish}
-          style={{ maxWidth: 460, margin: "0 auto" }} // Controla ancho del form y centra
+          style={{ maxWidth: 460, margin: "0 auto" }}
         >
           <Form.Item
             label="Usuario"
-            name="username"
-            rules={[{ required: true, message: "Ingresa tu usuario" }]}
+            name="email"
+            rules={[{ required: true, message: "Ingresa tu email" }]}
             style={{ marginBottom: 32 }}
           >
             <Input

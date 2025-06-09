@@ -6,103 +6,105 @@ import LogoHuella from "../assets/LogoHuella.png";
 import "../styles/navbarServicios.css";
 
 const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-            if (window.innerWidth > 992) {
-                setMenuOpen(false);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
     };
 
-    const menuItems = [
-        { key: "/#/", label: "Inicio" },
-        { key: "/#/servicios", label: "Servicios" },
-        { key: "/#/productos", label: "Productos" },
-        { key: "/#/agendar-citas", label: "Agenta tu cita" },
-        { key: "/#/login", label: "Inicia sesión" },
-    ];
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (window.innerWidth > 992) {
+        setMenuOpen(false);
+      }
+    };
 
-    return (
-        <nav className={`navBar ${isScrolled ? "scrolled" : ""}`}>
-            <div className="navContenido">
-                <Link to="/">
-                    <img src={LogoHuella} className="logo" alt="logoHuellitas" />
-                </Link>
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
 
-                {/* Menú Desktop */}
-                <div className="menu-desktop">
-                    {menuItems.slice(0, 3).map((item) => (
-                        <a key={item.key} href={`${item.key}`} className="nav-link">
-                            {item.label}
-                        </a>
-                    ))}
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
-                    {/* Añadimos el botón fuera del mapeo */}
-                    <Button type="primary" className="nav-button">
-                        <Link to="/agendar-citas">Agenda cita</Link>
-                    </Button>
-                    <Button type="primary" className="nav-button">
-                        <Link to="/login">Inicia sesión</Link>
-                    </Button>
-                </div>
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
-                {/* Botón Hamburguesa (Mobile) */}
-                <div className="hamburger" onClick={toggleMenu}>
-                    {menuOpen ? (
-                        <AiOutlineClose size={24} />
-                    ) : (
-                        <AiOutlineMenu size={24} />
-                    )}
-                </div>
+  const menuItems = [
+    { key: "/#/", label: "Inicio" },
+    { key: "/#/servicios", label: "Servicios" },
+    { key: "/#/productos", label: "Productos" },
+    { key: "/#/agendar-citas", label: "Agenta tu cita" },
+    { key: "/#/login", label: "Inicia sesión" },
+  ];
 
-                {/* Drawer para Mobile */}
-                <Drawer
-                    placement="right"
-                    onClose={toggleMenu}
-                    open={menuOpen}
-                    closable={false}
-                    width={windowWidth > 576 ? "300px" : "100%"}
-                    bodyStyle={{ padding: 0, backgroundColor: "#59867b" }}
-                    headerStyle={{ display: "none" }}
-                >
-                    <div className="mobile-menu">
-                        {menuItems.map((item) => (
-                            <a
-                                key={item.key}
-                                href={`${item.key}`}
-                                className="mobile-link"
-                                onClick={toggleMenu}
-                            >
-                                {item.label}
-                            </a>
-                        ))}
+  return (
+    <nav className={`navBar ${isScrolled ? "scrolled" : ""}`}>
+      <div className="navContenido">
+        <Link to="/">
+          <img src={LogoHuella} className="logo" alt="logoHuellitas" />
+        </Link>
 
-                    </div>
-                </Drawer>
-            </div>
-        </nav>
-    );
+        <div className="menu-desktop">
+          {menuItems.slice(0, 3).map((item) => (
+            <a key={item.key} href={`${item.key}`} className="nav-link">
+              {item.label}
+            </a>
+          ))}
+
+          {/* Botones con Link envolviendo al Button */}
+          <Link to="/agendar-citas">
+            <Button type="primary" className="nav-button">
+              Agenda cita
+            </Button>
+          </Link>
+          <Link to="/login">
+            <Button type="primary" className="nav-button">
+              Inicia sesión
+            </Button>
+          </Link>
+        </div>
+
+        {/* Botón Hamburguesa (Mobile) */}
+        <div className="hamburger" onClick={toggleMenu}>
+          {menuOpen ? (
+            <AiOutlineClose size={24} />
+          ) : (
+            <AiOutlineMenu size={24} />
+          )}
+        </div>
+
+        {/* Drawer para Mobile */}
+        <Drawer
+          placement="right"
+          onClose={toggleMenu}
+          open={menuOpen}
+          closable={false}
+          width={windowWidth > 576 ? "300px" : "100%"}
+          bodyStyle={{ padding: 0, backgroundColor: "#59867b" }}
+          headerStyle={{ display: "none" }}
+        >
+          <div className="mobile-menu">
+            {menuItems.map((item) => (
+              <a
+                key={item.key}
+                href={`${item.key}`}
+                className="mobile-link"
+                onClick={toggleMenu}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </Drawer>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
