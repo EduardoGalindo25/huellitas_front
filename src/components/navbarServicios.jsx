@@ -39,6 +39,8 @@ const Navbar = () => {
     { key: "/#/", label: "Inicio" },
     { key: "/#/servicios", label: "Servicios" },
     { key: "/#/productos", label: "Productos" },
+    { key: "/#/agendar-citas", label: "Agenta tu cita" },
+    { key: "/#/login", label: "Inicia sesión" },
   ];
 
   return (
@@ -48,17 +50,24 @@ const Navbar = () => {
           <img src={LogoHuella} className="logo" alt="logoHuellitas" />
         </Link>
 
-        {/* Menú Desktop */}
         <div className="menu-desktop">
-          {menuItems.map((item) => (
+          {menuItems.slice(0, 3).map((item) => (
             <a key={item.key} href={`${item.key}`} className="nav-link">
               {item.label}
             </a>
           ))}
-          {/* Añadimos el botón fuera del mapeo */}
-          <Button type="primary" className="nav-button">
-            <Link to="/agendar-citas">Agendar tu cita</Link>
-          </Button>
+
+          {/* Botones con Link envolviendo al Button */}
+          <Link to="/agendar-citas">
+            <Button type="primary" className="nav-button">
+              Agenda cita
+            </Button>
+          </Link>
+          <Link to="/login">
+            <Button type="primary" className="nav-button">
+              Inicia sesión
+            </Button>
+          </Link>
         </div>
 
         {/* Botón Hamburguesa (Mobile) */}
@@ -91,17 +100,6 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
-            {/* Botón en versión móvil */}
-            <Button
-              classNames="mobile_button"
-              type="primary"
-              className="mobile-button"
-              size="large"
-              block
-              onClick={toggleMenu}
-            >
-              <Link to="/agendar-citas">Agendar tu cita</Link>
-            </Button>
           </div>
         </Drawer>
       </div>

@@ -1,0 +1,62 @@
+.title_container {
+    width: 100%;
+    height: 30vh;
+    position: relative; /* Necesario para posicionar elementos hijos */
+    background-color: #fff; /* Opcional: para que se vea el área del Header */
+}
+
+.title {
+    color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 11vw; /* Espaciado desde los bordes */
+}
+.tabla-contenedor {
+    width: 80vw; /* ancho relativo para desktop */
+    margin: 0 auto;
+    padding: 1rem;
+    align-items: center;
+    box-sizing: border-box;
+
+    /* Añadir scroll horizontal */
+    overflow-x: auto;
+}
+.manage_button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    cursor: pointer;
+    color: black;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .tabla-contenedor {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .ant-table {
+        font-size: 14px;
+    }
+}
+
+/* Color de fondo de la cabecera de la tabla */
+.ant-table-thead > tr > th {
+    background-color: #59867b !important;
+    color: white !important;
+    font-weight: bold;
+    border-color: #4a6a65 !important; /* borde de cabecera para que combine */
+}
+
+/* Opcional: cambiar borde de la tabla para que combine */
+.ant-table-bordered {
+    border: 2px solid #59867b !important;
+}
+
+.ant-table-bordered td,
+.ant-table-bordered th {
+    border: 2px solid #59867b !important;
+}

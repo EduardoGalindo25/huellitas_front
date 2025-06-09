@@ -55,6 +55,18 @@ const LoginForm = () => {
           padding: "20px 0",
         }}
       >
+        {/* Mostrar alerta solo si está visible */}
+        {alert.visible && (
+          <Alert
+            style={{ marginBottom: 24 }}
+            message={alert.message}
+            type={alert.type}
+            showIcon
+            closable
+            onClose={() => setAlert({ ...alert, visible: false })}
+          />
+        )}
+
         <Form
           name="login"
           layout="vertical"
@@ -64,8 +76,8 @@ const LoginForm = () => {
         >
           <Form.Item
             label="Usuario"
-            name="username"
-            rules={[{ required: true, message: "Ingresa tu usuario" }]}
+            name="email"
+            rules={[{ required: true, message: "Ingresa tu email" }]}
             style={{ marginBottom: 32 }}
           >
             <Input
